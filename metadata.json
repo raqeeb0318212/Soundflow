@@ -1,0 +1,6 @@
+{
+  "name": "SoundFlow - Music Discovery & Streaming Player",
+  "description": "A modern, responsive music discovery and playback web application powered by official YouTube IFrame Player API and Spotify Web API integration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

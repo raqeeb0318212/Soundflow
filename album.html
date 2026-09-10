@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Album Details - SoundFlow</title>
+  <meta name="description" content="Album tracks, details, and official playback on SoundFlow.">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- SoundFlow Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/player.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <div class="app-container" id="app-root">
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="app-sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="brand-logo"><i class="fa-solid fa-compact-disc fa-spin-hover"></i><span>SoundFlow</span></a>
+        <span class="brand-badge">Official</span>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Menu</div>
+        <a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i><span>Home</span></a>
+        <a href="search.html" class="nav-link"><i class="fa-solid fa-magnifying-glass"></i><span>Search</span></a>
+        <a href="trending.html" class="nav-link"><i class="fa-solid fa-arrow-trend-up"></i><span>Trending</span></a>
+        <a href="genres.html" class="nav-link"><i class="fa-solid fa-shapes"></i><span>Genres</span></a>
+        <div class="nav-section-title">Library</div>
+        <a href="favorites.html" class="nav-link"><i class="fa-solid fa-heart"></i><span>Favorites</span><span class="badge-count" id="sidebar-fav-count">0</span></a>
+        <a href="playlist.html" class="nav-link"><i class="fa-solid fa-list-music"></i><span>Playlists</span><span class="badge-count" id="sidebar-pl-count">0</span></a>
+        <a href="downloads.html" class="nav-link"><i class="fa-solid fa-cloud-arrow-down"></i><span>Downloads</span><span class="badge-count" id="sidebar-dl-count">0</span></a>
+        <button class="nav-link open-history-btn"><i class="fa-solid fa-clock-rotate-left"></i><span>Recently Played</span></button>
+      </nav>
+      <div class="sidebar-footer">
+        <button class="nav-link open-settings-btn"><i class="fa-solid fa-gear"></i><span>Settings</span></button>
+        <button class="nav-link open-about-btn"><i class="fa-solid fa-circle-info"></i><span>About & Legal</span></button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="main-wrapper">
+      <header class="top-header">
+        <div class="header-left">
+          <button class="menu-toggle-btn" id="menu-toggle-btn"><i class="fa-solid fa-bars"></i></button>
+          <div class="search-container">
+            <div class="search-input-wrapper">
+              <i class="fa-solid fa-magnifying-glass search-icon"></i>
+              <input type="text" class="search-input" id="header-search-input" placeholder="Search..." autocomplete="off">
+              <button class="clear-search-btn" id="header-search-clear"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="search-suggestions-dropdown" id="header-search-suggestions"></div>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="api-status-pill" id="api-status-badge"><i class="fa-solid fa-bolt"></i><span>Curated Library Mode</span></div>
+          <button class="user-profile-btn" id="user-profile-btn"><div class="user-avatar" id="header-user-avatar"><i class="fa-solid fa-user"></i></div><span class="user-name" id="header-user-name">Sign In</span></button>
+        </div>
+      </header>
+
+      <main class="content-body">
+        <!-- Album Header Banner -->
+        <div class="detail-header">
+          <img class="detail-cover" id="album-cover" src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=500&q=80" alt="Album Cover">
+          <div class="detail-meta">
+            <span class="detail-tag">Official Album</span>
+            <h1 class="detail-title" id="album-title">After Hours</h1>
+            <p class="detail-desc" id="album-artist-desc">By <a href="artist.html?id=the-weeknd" style="color: var(--text-primary); font-weight: 700; text-decoration: underline;" id="album-artist-link">The Weeknd</a></p>
+            <div class="detail-stats" style="margin-bottom: 20px;">
+              <span id="album-year">2020</span>
+              <span>•</span>
+              <span id="album-tracks-count">14 songs</span>
+              <span>•</span>
+              <span>Pop / R&B</span>
+            </div>
+            <div style="display: flex; gap: 14px; align-items: center; flex-wrap: wrap;">
+              <button class="btn-primary" id="album-play-all-btn" style="padding: 12px 28px;">
+                <i class="fa-solid fa-play"></i> Play Album
+              </button>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="btn-secondary" id="album-spotify-link" style="color: #1db954;">
+                <i class="fa-brands fa-spotify"></i> Open on Spotify
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Album Tracklist -->
+        <section class="music-section">
+          <div class="section-header">
+            <h2 class="section-title">Tracks</h2>
+          </div>
+          <div class="custom-table-container">
+            <table class="tracks-table">
+              <thead>
+                <tr>
+                  <th style="width: 40px; text-align: center;">#</th>
+                  <th>Title</th>
+                  <th>Duration</th>
+                  <th>Source</th>
+                  <th style="text-align: right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="album-tracks-tbody">
+                <!-- Populated via script -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-inner">
+          <div class="footer-top">
+            <div class="footer-brand"><i class="fa-solid fa-compact-disc"></i><span>SoundFlow</span></div>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">Official streaming & music discovery.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Bottom Player Bar -->
+  <footer class="music-player-bar" id="music-player-bar">
+    <div class="mobile-progress-line"><div class="mobile-progress-fill"></div></div>
+    <div class="player-left">
+      <div class="player-thumb-wrapper"><img class="player-thumb" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=200&q=80" alt="Current Track"></div>
+      <div class="player-track-info"><span class="player-track-title">SoundFlow Player</span><span class="player-track-artist">Select a track</span></div>
+      <div class="player-track-actions">
+        <button class="player-btn-fav"><i class="fa-regular fa-heart"></i></button>
+        <button class="player-btn-add"><i class="fa-solid fa-plus"></i></button>
+      </div>
+    </div>
+    <div class="player-center">
+      <div class="playback-controls">
+        <button class="control-btn" id="player-shuffle-btn"><i class="fa-solid fa-shuffle"></i></button>
+        <button class="control-btn btn-prev"><i class="fa-solid fa-backward-step"></i></button>
+        <button class="btn-play-pause"><i class="fa-solid fa-play"></i></button>
+        <button class="control-btn btn-next"><i class="fa-solid fa-forward-step"></i></button>
+        <button class="control-btn" id="player-repeat-btn"><i class="fa-solid fa-repeat"></i></button>
+      </div>
+      <div class="progress-container">
+        <span class="time-stamp current">0:00</span>
+        <div class="progress-bar-wrapper"><div class="progress-bar-bg"><div class="progress-bar-fill"></div></div></div>
+        <span class="time-stamp total">0:00</span>
+      </div>
+    </div>
+    <div class="player-right">
+      <button class="player-source-btn player-dl-btn" id="player-download-btn" title="Download Playing Track MP3" style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); color: var(--accent-primary);"><i class="fa-solid fa-cloud-arrow-down"></i> <span class="dl-btn-text">Download</span></button>
+      <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="player-source-btn yt-source-btn yt-btn"><i class="fa-brands fa-youtube"></i> YouTube</a>
+      <a href="https://spotify.com" target="_blank" rel="noopener noreferrer" class="player-source-btn spotify-source-btn spotify-btn"><i class="fa-brands fa-spotify"></i> Spotify</a>
+      <button class="toggle-video-btn" id="toggle-video-btn"><i class="fa-solid fa-display"></i></button>
+      <div class="volume-container">
+        <button class="volume-btn"><i class="fa-solid fa-volume-high"></i></button>
+        <div class="volume-slider-wrapper"><div class="volume-slider-bg"><div class="volume-slider-fill"></div></div></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- YouTube Embed Stage -->
+  <div class="yt-player-drawer hidden-drawer" id="youtube-player-drawer">
+    <div class="yt-drawer-header">
+      <span><i class="fa-brands fa-youtube"></i> Official YouTube IFrame Player</span>
+      <button class="yt-drawer-close" id="youtube-drawer-close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="yt-iframe-stage"><div id="youtube-player-element"></div></div>
+  </div>
+
+  <!-- Mobile Bottom Nav -->
+  <nav class="mobile-bottom-nav">
+    <a href="index.html" class="mobile-nav-item"><i class="fa-solid fa-house"></i><span>Home</span></a>
+    <a href="search.html" class="mobile-nav-item"><i class="fa-solid fa-magnifying-glass"></i><span>Search</span></a>
+    <a href="trending.html" class="mobile-nav-item"><i class="fa-solid fa-arrow-trend-up"></i><span>Trending</span></a>
+    <a href="favorites.html" class="mobile-nav-item"><i class="fa-solid fa-heart"></i><span>Favorites</span></a>
+    <a href="playlist.html" class="mobile-nav-item"><i class="fa-solid fa-list-music"></i><span>Playlists</span></a>
+  </nav>
+
+  <!-- Mobile Expanded Player -->
+  <div class="mobile-expanded-player" id="mobile-expanded-player">
+    <div class="expanded-player-header"><button id="collapse-expanded-player"><i class="fa-solid fa-chevron-down"></i></button><span>Now Playing</span><button class="expanded-fav-btn"><i class="fa-regular fa-heart"></i></button></div>
+    <div class="expanded-artwork-container"><img src="" alt="Artwork"></div>
+    <div class="expanded-info"><h2 class="expanded-title">Title</h2><p class="expanded-artist">Artist</p></div>
+    <div class="progress-container" style="display: flex; width: 100%; margin: 16px 0;">
+      <span class="time-stamp current">0:00</span>
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill">
+            <div class="progress-bar-thumb"></div>
+          </div>
+        </div>
+      </div>
+      <span class="time-stamp total">0:00</span>
+    </div>
+    <div class="expanded-controls">
+      <button class="control-btn" onclick="toggleShuffle()" title="Shuffle"><i class="fa-solid fa-shuffle"></i></button>
+      <button class="control-btn btn-prev" title="Previous Track"><i class="fa-solid fa-backward-step"></i></button>
+      <button class="control-btn btn-seek-back" title="Rewind 10s"><i class="fa-solid fa-rotate-left"></i><span class="seek-badge">10</span></button>
+      <button class="expanded-play-btn" title="Play / Pause"><i class="fa-solid fa-play"></i></button>
+      <button class="control-btn btn-seek-fwd" title="Fast Forward 10s"><i class="fa-solid fa-rotate-right"></i><span class="seek-badge">10</span></button>
+      <button class="control-btn btn-next" title="Next Track"><i class="fa-solid fa-forward-step"></i></button>
+      <button class="control-btn" onclick="toggleRepeat()" title="Repeat Mode"><i class="fa-solid fa-repeat"></i></button>
+    </div>
+  </div>
+
+  <!-- Modals -->
+  <div class="modal-overlay" id="add-to-playlist-modal"><div class="modal-card"><div class="modal-header"><h3 class="modal-title">Add to Playlist</h3><button class="modal-close-btn" id="close-add-playlist-modal"><i class="fa-solid fa-xmark"></i></button></div><div class="modal-body"><div id="modal-playlists-list"></div></div></div></div>
+  <div class="modal-overlay" id="create-playlist-modal"><div class="modal-card"><div class="modal-header"><h3 class="modal-title">Create Playlist</h3><button class="modal-close-btn" id="close-create-playlist-modal"><i class="fa-solid fa-xmark"></i></button></div><form id="create-playlist-form"><div class="modal-body"><input type="text" id="new-playlist-name-input" class="form-control" required placeholder="Title"></div><div class="modal-footer"><button type="submit" class="btn-primary">Create</button></div></form></div></div>
+  <div class="modal-overlay" id="settings-modal"><div class="modal-card"><div class="modal-header"><h3 class="modal-title">Settings</h3><button class="modal-close-btn" id="close-settings-modal"><i class="fa-solid fa-xmark"></i></button></div><div class="modal-body"><input type="password" id="settings-yt-api-key" class="form-control"></div></div></div>
+  <div class="modal-overlay" id="auth-modal"><div class="modal-card"><div class="modal-header"><h3 class="modal-title">Account</h3><button class="modal-close-btn" id="close-auth-modal"><i class="fa-solid fa-xmark"></i></button></div><div id="user-profile-card" style="display:none; padding:20px;"><button class="btn-primary" id="auth-logout-btn" style="background:#ef4444;">Sign Out</button></div><form id="auth-login-form"><div class="modal-body"><input type="email" id="login-email" class="form-control" value="demo@soundflow.app"><input type="password" id="login-password" class="form-control" value="soundflow123"></div><div class="modal-footer"><button type="submit" class="btn-primary">Sign In</button></div></form></div></div>
+  <div class="modal-overlay" id="recently-played-modal"><div class="modal-card"><div class="modal-header"><h3 class="modal-title">Recently Played</h3><button class="modal-close-btn" id="close-history-modal"><i class="fa-solid fa-xmark"></i></button></div><div class="modal-body" id="history-tracks-list"></div></div></div>
+  <div class="modal-overlay" id="about-modal"><div class="modal-card"><div class="modal-header"><h3 class="modal-title">About</h3><button class="modal-close-btn" id="close-about-modal"><i class="fa-solid fa-xmark"></i></button></div><div class="modal-body"><p>SoundFlow is an educational music player.</p></div></div></div>
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/downloads.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/playlist.js"></script>
+  <script src="js/favorites.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const albumQuery = urlParams.get('name') || 'After Hours';
+
+      // Find tracks belonging to or related to this album
+      const albumTracks = CURATED_MUSIC_CATALOG.filter(t => (t.album || '').toLowerCase().includes(albumQuery.toLowerCase()));
+      const displayTracks = albumTracks.length > 0 ? albumTracks : CURATED_MUSIC_CATALOG.slice(0, 5);
+
+      const first = displayTracks[0];
+      document.getElementById('album-title').textContent = first.album || albumQuery;
+      document.getElementById('album-artist-link').textContent = first.artist;
+      document.getElementById('album-cover').src = first.thumbnail;
+      document.getElementById('album-tracks-count').textContent = `${displayTracks.length} tracks`;
+      document.getElementById('album-spotify-link').href = getSpotifySearchUrl(first.album, first.artist);
+
+      const tbody = document.getElementById('album-tracks-tbody');
+      tbody.innerHTML = '';
+
+      displayTracks.forEach((track, idx) => {
+        const tr = document.createElement('tr');
+        const isFav = isFavorite(track.id || track.videoId);
+        tr.innerHTML = `
+          <td style="text-align: center; color: var(--text-muted); font-weight: 700;">${idx + 1}</td>
+          <td>
+            <div class="track-row-title-cell">
+              <img class="table-thumb" src="${track.thumbnail}" alt="${track.title}" />
+              <div>
+                <div class="table-track-name">${track.title}</div>
+                <div class="table-track-artist">${track.artist}</div>
+              </div>
+            </div>
+          </td>
+          <td>${track.duration || '3:30'}</td>
+          <td><span class="source-badge youtube" style="position:static;"><i class="fa-brands fa-youtube"></i> YouTube</span></td>
+          <td style="text-align: right;">
+            <div class="table-actions" style="justify-content: flex-end;">
+              <button class="table-btn al-play-btn"><i class="fa-solid fa-play"></i></button>
+              <button class="table-btn al-fav-btn ${isFav ? 'active' : ''}"><i class="${isFav ? 'fa-solid' : 'fa-regular'} fa-heart"></i></button>
+              <button class="table-btn al-add-btn"><i class="fa-solid fa-plus"></i></button>
+            </div>
+          </td>
+        `;
+
+        tr.querySelector('.al-play-btn').addEventListener('click', () => playTrack(track, displayTracks));
+        tr.querySelector('.al-fav-btn').addEventListener('click', (e) => {
+          const favorited = toggleFavorite(track);
+          e.currentTarget.classList.toggle('active', favorited);
+          e.currentTarget.innerHTML = favorited ? '<i class="fa-solid fa-heart"></i>' : '<i class="fa-regular fa-heart"></i>';
+        });
+        tr.querySelector('.al-add-btn').addEventListener('click', () => openAddToPlaylistModal(track));
+
+        tbody.appendChild(tr);
+      });
+
+      document.getElementById('album-play-all-btn').addEventListener('click', () => {
+        if (displayTracks.length > 0) playTrack(displayTracks[0], displayTracks);
+      });
+    });
+  </script>
+</body>
+</html>

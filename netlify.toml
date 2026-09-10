@@ -1,0 +1,28 @@
+# Netlify configuration for SoundFlow Music Streaming Web App
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/search"
+  to = "/search.html"
+  status = 200
+
+[[redirects]]
+  from = "/favorites"
+  to = "/favorites.html"
+  status = 200
+
+[[redirects]]
+  from = "/library"
+  to = "/library.html"
+  status = 200
+
+[[redirects]]
+  from = "/settings"
+  to = "/settings.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"

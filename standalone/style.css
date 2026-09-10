@@ -1,0 +1,38 @@
+/* Fixit Bhera Stylesheet */
+:root {
+  --font-en: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-ur: 'Noto Sans Arabic', 'Jameel Noori Nastaleeq', Tahoma, sans-serif;
+}
+
+body {
+  font-family: var(--font-en);
+}
+
+html[lang="ur"] body,
+html[dir="rtl"] body {
+  font-family: var(--font-ur);
+  line-height: 1.8;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Custom scrollbar for cleanliness */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a3a3a3;
+}

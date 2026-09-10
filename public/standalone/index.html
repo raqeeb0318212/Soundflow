@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fixit Bhera - 1-Hour Doorstep Service | Electrician, Plumber, AC & Repairs</title>
+  <meta name="description" content="Fixit Bhera: Verified Electrician, Plumber, AC Technician, Appliance Repair & Cleaning in Bhera City & neighboring villages. 1-hour doorstep arrival, standard visit rates, 100% cash on service." />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Fonts: English (Plus Jakarta Sans) & Urdu (Noto Sans Arabic) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Noto+Sans+Arabic:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-neutral-50 text-neutral-900 font-sans antialiased pb-20">
+
+  <!-- Top Assurance Bar -->
+  <div class="bg-neutral-900 text-neutral-200 text-xs py-2 px-4 border-b border-neutral-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-3">
+        <span class="flex items-center gap-1.5 text-emerald-400 font-bold">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span id="txt-live-status">Active technicians on duty in Bhera City & villages</span>
+        </span>
+        <span class="text-neutral-500">|</span>
+        <span class="text-neutral-300" id="txt-arrival-promise">1-Hour Doorstep Arrival Guarantee</span>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <span class="text-amber-400 font-semibold hidden sm:inline" id="txt-cash-promise">100% Cash After Work (Zero Advance)</span>
+        <button id="btn-lang-toggle" class="bg-neutral-800 hover:bg-neutral-700 text-white text-xs font-bold px-3 py-1 rounded-full border border-neutral-700 transition cursor-pointer flex items-center gap-1">
+          <span>🌐</span>
+          <span id="lang-btn-label">اردو (Urdu)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-neutral-200 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-4">
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-amber-500 text-neutral-950 flex items-center justify-center font-black text-xl">🔧</div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xl font-extrabold tracking-tight text-neutral-900" id="brand-title">Fixit Bhera</span>
+            <span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-1.5 py-0.5 rounded-sm uppercase">Tehsil Bhera</span>
+          </div>
+          <p class="text-xs text-neutral-500" id="brand-sub">Doorstep service within 1 hour</p>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-neutral-700">
+        <a href="#services" class="hover:text-amber-600 transition" id="nav-services">Our Services</a>
+        <a href="#how-it-works" class="hover:text-amber-600 transition" id="nav-how">How It Works</a>
+        <a href="#coverage" class="hover:text-amber-600 transition" id="nav-areas">Villages & Coverage</a>
+        <a href="#reviews-section" class="hover:text-amber-600 transition" id="nav-reviews">Customer Feedback</a>
+      </nav>
+
+      <div class="flex items-center gap-2.5">
+        <a href="tel:03007864321" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 rounded-xl flex items-center gap-2 transition">
+          <span>📞</span>
+          <span class="hidden sm:inline" id="txt-call-label">Call:</span>
+          <span class="font-mono">0300-7864321</span>
+        </a>
+        <button onclick="openBookingModal()" class="bg-amber-500 hover:bg-amber-400 text-neutral-950 text-xs sm:text-sm font-bold px-4 py-2 rounded-xl transition cursor-pointer" id="btn-book-nav">
+          Book Service
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-b from-amber-500/10 via-amber-500/5 to-white py-12 sm:py-20 border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center space-y-6">
+      <div class="inline-flex items-center gap-2 bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold px-4 py-1.5 rounded-full shadow-xs">
+        <span>📍</span>
+        <span id="hero-badge">Serving Bhera City, Miani, Hazurpur, Zain Pur, Ali Pur, Melowal & all local villages</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-neutral-900 tracking-tight max-w-4xl mx-auto leading-tight" id="hero-heading">
+        Fixit Bhera — <span class="text-amber-600">Within 1 Hour</span> at Your Doorstep!
+      </h1>
+
+      <p class="text-base sm:text-lg text-neutral-600 max-w-2xl mx-auto leading-relaxed" id="hero-desc">
+        Electrician, Plumber, AC Technician, Fridge & Washing Machine Repair. No more wandering in the bazaar or begging busy mistris. Standard rates, CNIC-verified local technicians, and cash payment after completion.
+      </p>
+
+      <div class="inline-flex flex-wrap items-center justify-center gap-4 bg-white border border-neutral-200 rounded-2xl p-4 shadow-sm max-w-xl mx-auto text-xs sm:text-sm">
+        <div class="flex items-center gap-1.5 font-bold text-neutral-800">
+          <span>💰</span>
+          <span id="txt-rate-highlight">Visit Rate: Rs. 1,500 - 4,000</span>
+        </div>
+        <span class="text-neutral-300 hidden sm:inline">•</span>
+        <div class="flex items-center gap-1.5 font-bold text-neutral-800">
+          <span>🛡️</span>
+          <span id="txt-warranty-highlight">30-Day Free Follow-up Warranty</span>
+        </div>
+      </div>
+
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
+        <button onclick="openBookingModal()" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold px-8 py-3.5 rounded-xl text-sm sm:text-base shadow-md transition cursor-pointer" id="hero-btn-book">
+          🛠️ Book Service Online
+        </button>
+        <a id="hero-wa-link" href="https://wa.me/923007864321?text=Hello%20Fixit%20Bhera!%20I%20need%20a%20technician." target="_blank" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-xl text-sm sm:text-base flex items-center justify-center gap-2 shadow-md transition">
+          <span>💬</span>
+          <span id="hero-btn-wa">Instant WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 Core Services Section -->
+  <section id="services" class="py-16 sm:py-20 bg-white border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
+      <div class="text-center space-y-3">
+        <span class="text-xs font-bold text-amber-700 bg-amber-100 px-3 py-1 rounded-full uppercase" id="services-badge">Our 5 Core Services</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-neutral-900" id="services-heading">Most Requested Home Services in Bhera</h2>
+        <p class="text-sm sm:text-base text-neutral-600 max-w-2xl mx-auto" id="services-sub">Equipped with specialized tools and authentic hardware parts at your doorstep</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="services-container">
+        <!-- Injected by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="py-16 sm:py-20 bg-neutral-50 border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
+      <div class="text-center space-y-2">
+        <span class="text-xs font-bold text-amber-700 bg-amber-100 px-3 py-1 rounded-full uppercase" id="how-badge">Simple 3 Steps</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-neutral-900" id="how-heading">How Fixit Bhera Works</h2>
+        <p class="text-sm text-neutral-600 max-w-2xl mx-auto" id="how-sub">No more wasted hours searching in the bazaar or waiting endlessly</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-2xl border border-neutral-200 shadow-xs space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-700 flex items-center justify-center font-black text-xl">1</div>
+          <h3 class="font-extrabold text-lg text-neutral-900" id="step1-title">Book via Call or WhatsApp</h3>
+          <p class="text-xs sm:text-sm text-neutral-600" id="step1-desc">Call 0300-7864321 or send a WhatsApp message with your area/village and problem description.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-neutral-200 shadow-xs space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-700 flex items-center justify-center font-black text-xl">2</div>
+          <h3 class="font-extrabold text-lg text-neutral-900" id="step2-title">Technician Arrives in 1 Hour</h3>
+          <p class="text-xs sm:text-sm text-neutral-600" id="step2-desc">A CNIC-verified pro arrives on a motorbike with proper diagnostic tools and quotes the rate beforehand.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-neutral-200 shadow-xs space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-700 flex items-center justify-center font-black text-xl">3</div>
+          <h3 class="font-extrabold text-lg text-neutral-900" id="step3-title">Pay Cash After Inspection</h3>
+          <p class="text-xs sm:text-sm text-neutral-600" id="step3-desc">Inspect the repair, ensure complete satisfaction, and pay cash or JazzCash. You receive a 30-day warranty.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Area Coverage -->
+  <section id="coverage" class="py-16 sm:py-20 bg-white border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-10">
+      <div class="text-center space-y-2">
+        <span class="text-xs font-bold text-emerald-800 bg-emerald-100 px-3 py-1 rounded-full uppercase" id="area-badge">Coverage Areas</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-neutral-900" id="area-title">Bhera City & Neighboring Villages</h2>
+        <p class="text-sm text-neutral-600" id="area-sub">Our technicians promptly reach all 8 historic gates of Bhera and nearby rural communities</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4" id="areas-container">
+        <!-- Injected by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Real Customer Feedback & Guarantees (Zero Dummy Reviews) -->
+  <section id="reviews-section" class="py-16 sm:py-20 bg-neutral-50 border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-10">
+      <div class="text-center space-y-2 max-w-3xl mx-auto">
+        <span class="text-xs font-bold text-emerald-800 bg-emerald-100 px-3 py-1 rounded-full uppercase" id="feedback-badge">Quality Standards</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-neutral-900" id="feedback-title">Customer Feedback & Service Commitments</h2>
+        <p class="text-sm text-neutral-600" id="feedback-sub">Zero fake testimonials. Pay after inspecting the job and submit your genuine experience directly.</p>
+      </div>
+
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-neutral-200 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <h3 class="font-extrabold text-neutral-900 text-lg" id="txt-share-exp">Share Your Feedback</h3>
+          <p class="text-xs text-neutral-500" id="txt-share-sub">Help us maintain top-tier service standards in Tehsil Bhera.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="openFeedbackModal()" class="bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition cursor-pointer" id="btn-write-review">
+            ⭐ Write a Review
+          </button>
+          <a href="https://wa.me/923007864321?text=Hello%20Fixit%20Bhera!%20I%20would%20like%20to%20share%20my%20feedback." target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-1.5">
+            <span>💬</span><span>WhatsApp Feedback</span>
+          </a>
+        </div>
+      </div>
+
+      <div id="user-reviews-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Rendered from real localStorage reviews -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 text-neutral-300 py-12 border-t border-neutral-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs">
+      <div>
+        <span class="text-lg font-bold text-white">Fixit Bhera</span>
+        <p class="text-neutral-500 mt-1">1-Hour Doorstep Electrician, Plumber, AC & Repairs in Bhera.</p>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="tel:03007864321" class="text-amber-400 font-bold hover:underline">📞 0300-7864321</a>
+        <span class="text-neutral-700">|</span>
+        <a href="https://wa.me/923007864321" target="_blank" class="text-emerald-400 font-bold hover:underline">💬 WhatsApp Direct</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Booking Modal -->
+  <div id="booking-modal" class="fixed inset-0 z-50 bg-neutral-950/70 hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl w-full max-w-lg shadow-2xl border border-neutral-200 overflow-hidden relative">
+      <div class="bg-neutral-900 text-white p-5 flex items-center justify-between">
+        <div>
+          <h3 class="font-bold text-lg" id="modal-title">Book a Verified Technician</h3>
+          <p class="text-xs text-neutral-400" id="modal-sub">Prompt doorstep arrival in 1 hour</p>
+        </div>
+        <button onclick="closeBookingModal()" class="text-neutral-400 hover:text-white p-1 rounded-lg text-lg cursor-pointer">✕</button>
+      </div>
+
+      <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="p-5 space-y-4 text-xs sm:text-sm">
+        <div>
+          <label class="block font-bold text-neutral-800 mb-1" id="lbl-select-service">Select Service:</label>
+          <select id="modal-service-select" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl p-2.5 font-semibold text-neutral-900">
+            <option value="electrician">Electrician (Wiring, Fan, Geyser, Breakers)</option>
+            <option value="plumber">Plumber (Leakage, Tanki, Motor Pump, Taps)</option>
+            <option value="ac-technician">AC Technician (Gas Refill, Service, Fitting)</option>
+            <option value="appliance-repair">Appliance Repair (Fridge, Washing Machine, Oven)</option>
+            <option value="home-cleaning">Home Cleaning (Deep Clean, Sofa & Tank Wash)</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-neutral-800 mb-1" id="lbl-name">Your Full Name:</label>
+            <input type="text" id="modal-name" required placeholder="e.g. Muhammad Ahmad" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl p-2.5" />
+          </div>
+          <div>
+            <label class="block font-bold text-neutral-800 mb-1" id="lbl-phone">Mobile Number:</label>
+            <input type="tel" id="modal-phone" required placeholder="0300-XXXXXXX" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl p-2.5 font-mono" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-neutral-800 mb-1" id="lbl-area">Area / Village:</label>
+          <select id="modal-area-select" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl p-2.5">
+            <option value="bhera-city">Bhera City</option>
+            <option value="miani">Miani</option>
+            <option value="hazurpur">Hazurpur</option>
+            <option value="zain-pur">Zain Pur</option>
+            <option value="ali-pur">Ali Pur</option>
+            <option value="melowal">Melowal</option>
+            <option value="rakh-chargah">Rakh Chargah</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-bold text-neutral-800 mb-1" id="lbl-address">Street / Mohalla / Landmark:</label>
+          <input type="text" id="modal-address" required placeholder="e.g. Mohalla Sheikhan, Street #2, Near Jamia Masjid" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl p-2.5" />
+        </div>
+
+        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-md transition cursor-pointer text-sm">
+          <span>💬</span>
+          <span id="btn-submit-order">Send Booking via WhatsApp</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Write a Review Modal -->
+  <div id="feedback-modal" class="fixed inset-0 z-50 bg-neutral-950/70 hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl w-full max-w-md p-6 shadow-2xl border border-neutral-200 space-y-4">
+      <div class="flex items-center justify-between border-b border-neutral-100 pb-3">
+        <h3 class="font-bold text-neutral-900 text-base" id="rev-modal-title">Submit Real Customer Review</h3>
+        <button onclick="closeFeedbackModal()" class="text-neutral-400 hover:text-neutral-900 text-lg cursor-pointer">✕</button>
+      </div>
+
+      <form onsubmit="handleReviewSubmit(event)" class="space-y-3.5 text-xs sm:text-sm">
+        <div>
+          <label class="block font-semibold text-neutral-800 mb-1">Your Name:</label>
+          <input type="text" id="rev-name" required placeholder="e.g. Tariq Ahmad" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl p-2.5" />
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block font-semibold text-neutral-800 mb-1">Area:</label>
+            <select id="rev-area" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl p-2.5">
+              <option value="Bhera City">Bhera City</option>
+              <option value="Miani">Miani</option>
+              <option value="Hazurpur">Hazurpur</option>
+              <option value="Zain Pur">Zain Pur</option>
+              <option value="Ali Pur">Ali Pur</option>
+              <option value="Melowal">Melowal</option>
+              <option value="Rakh Chargah">Rakh Chargah</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-semibold text-neutral-800 mb-1">Service:</label>
+            <select id="rev-service" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl p-2.5">
+              <option value="Electrician">Electrician</option>
+              <option value="Plumber">Plumber</option>
+              <option value="AC Technician">AC Technician</option>
+              <option value="Appliance Repair">Appliance Repair</option>
+              <option value="Home Cleaning">Home Cleaning</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-semibold text-neutral-800 mb-1">Rating (1 to 5 Stars):</label>
+          <select id="rev-rating" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl p-2.5">
+            <option value="5">⭐⭐⭐⭐⭐ 5 Stars (Excellent)</option>
+            <option value="4">⭐⭐⭐⭐ 4 Stars (Good)</option>
+            <option value="3">⭐⭐⭐ 3 Stars (Average)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-semibold text-neutral-800 mb-1">Your Feedback:</label>
+          <textarea id="rev-comment" required rows="3" placeholder="Describe the punctuality and repair quality..." class="w-full bg-neutral-50 border border-neutral-300 rounded-xl p-2.5"></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold py-3 rounded-xl transition cursor-pointer">
+          Submit Review
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

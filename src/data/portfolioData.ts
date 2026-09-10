@@ -1,0 +1,295 @@
+import { Project, SkillCategory, ExperienceItem, EducationItem, CertificationItem } from '../types';
+
+export const PERSONAL_INFO = {
+  name: 'Muhammad Raqeeb',
+  headline: 'Frontend Developer & Mobile Engineer',
+  subHeadline: 'BS Computer Science (CGPA: 3.68 / 4.00) • The University of Lahore',
+  tagline: 'I build fast, responsive, and user-focused web & mobile applications.',
+  bioParagraphs: [
+    'I am a Computer Science graduate from The University of Lahore with a strong academic record (3.68/4.00 CGPA) and hands-on experience engineering real-world software across modern Web and Mobile ecosystems.',
+    'My core focus bridges clean user interfaces in React and Tailwind CSS with robust cross-platform mobile apps in Flutter and Dart, backed by scalable cloud services and clean object-oriented architecture.',
+    'Passionate about solving tangible problems, I turn requirements into intuitive digital experiences with high attention to performance, responsive typography, and accessibility.',
+  ],
+  keyJobSkills: [
+    {
+      title: 'Modern Frontend',
+      description: 'React, TypeScript, Tailwind CSS, responsive layouts, state management & clean component architectures.',
+      icon: 'Layout',
+    },
+    {
+      title: 'Cross-Platform Mobile',
+      description: 'Flutter & Dart app engineering with Firebase backend, real-time data sync, and platform-adaptive UI.',
+      icon: 'Smartphone',
+    },
+    {
+      title: 'Core Software Principles',
+      description: 'Solid OOP in Java, algorithms, Git version workflows, and applied machine learning fundamentals.',
+      icon: 'Terminal',
+    },
+  ],
+  location: 'Raiwind, Punjab, PK',
+  originCity: 'Bhera, District Sargodha, Punjab, Pakistan',
+  email: 'raqeeb0318212@gmail.com',
+  phone: '+92 318 2121032',
+  phoneDisplay: '+92 318 2121032',
+  whatsappUrl: 'https://wa.me/923182121032?text=Hi%20Muhammad%20Raqeeb%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect%20regarding%20an%20opportunity!',
+  linkedinUrl: 'https://linkedin.com/in/raqeeb0318',
+  githubUrl: 'https://github.com/raqeeb0318212',
+  availableForHire: true,
+  availabilityText: 'Available for Entry-Level & Frontend/Mobile Roles',
+  stats: [
+    { label: 'Degree CGPA', value: '3.68 / 4.0' },
+    { label: 'Featured Projects', value: '4+ Live & Repos' },
+    { label: 'Graduation Year', value: '2026' },
+    { label: 'Responsive Polish', value: '100%' },
+  ],
+};
+
+export const SKILL_CATEGORIES: SkillCategory[] = [
+  {
+    id: 'frontend',
+    title: 'Frontend & Web Development',
+    description: 'Modern component-driven web interfaces built with speed, pixel precision, and responsive fidelity.',
+    icon: 'Layout',
+    skills: [
+      { name: 'HTML5 & Semantic Web', level: 'Advanced', percentage: 95, highlight: true },
+      { name: 'CSS3 & Flexbox / Grid', level: 'Advanced', percentage: 92, highlight: true },
+      { name: 'JavaScript (ES6+)', level: 'Proficient', percentage: 88, highlight: true },
+      { name: 'React', level: 'Proficient', percentage: 85, highlight: true },
+      { name: 'Tailwind CSS', level: 'Advanced', percentage: 92, highlight: true },
+      { name: 'TypeScript Fundamentals', level: 'Proficient', percentage: 80 },
+    ],
+  },
+  {
+    id: 'mobile-core',
+    title: 'Mobile & Core Engineering',
+    description: 'Native-feel cross-platform apps and structured backend integration with Firebase and Java.',
+    icon: 'Smartphone',
+    skills: [
+      { name: 'Flutter', level: 'Proficient', percentage: 88, highlight: true },
+      { name: 'Dart', level: 'Proficient', percentage: 86, highlight: true },
+      { name: 'Java (OOP & Data Structures)', level: 'Proficient', percentage: 84, highlight: true },
+      { name: 'Firebase (Auth, Firestore, Messaging)', level: 'Proficient', percentage: 82 },
+      { name: 'AI / Machine Learning Concepts', level: 'Core Knowledge', percentage: 75 },
+    ],
+  },
+  {
+    id: 'tools',
+    title: 'Developer Tools & Workflow',
+    description: 'Standard version control, modern IDE setups, and collaborative design prototyping.',
+    icon: 'Terminal',
+    skills: [
+      { name: 'Git & GitHub Workflow', level: 'Proficient', percentage: 90, highlight: true },
+      { name: 'VS Code & Android Studio', level: 'Advanced', percentage: 92 },
+      { name: 'Figma to Code', level: 'Proficient', percentage: 82 },
+      { name: 'RESTful API Integration', level: 'Proficient', percentage: 85 },
+    ],
+  },
+  {
+    id: 'soft-skills',
+    title: 'Professional Soft Skills',
+    description: 'Workplace strengths developed through university group collaborations and freelance client delivery.',
+    icon: 'Users',
+    skills: [
+      { name: 'Analytical Problem Solving', level: 'Proficient', percentage: 92, highlight: true },
+      { name: 'Responsive UI/UX Sensibility', level: 'Advanced', percentage: 94, highlight: true },
+      { name: 'Cross-functional Teamwork', level: 'Proficient', percentage: 88 },
+      { name: 'Time Management & Sprint Deadlines', level: 'Proficient', percentage: 86 },
+      { name: 'Clear Technical Communication', level: 'Proficient', percentage: 88 },
+    ],
+  },
+];
+
+export const PROJECTS: Project[] = [
+  {
+    id: 'nexus',
+    name: 'Nexus — University Alumni Networking App',
+    oneLiner: 'Cross-platform community ecosystem uniting alumni, students, and recruiters with live chat and event feeds.',
+    category: 'Mobile App',
+    year: '2026',
+    featured: true,
+    thumbnailUrl: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80',
+    mockupAccent: 'from-emerald-500/20 to-teal-500/10',
+    techStack: ['Flutter', 'Dart', 'Firebase Auth', 'Firestore', 'Cloud Messaging', 'Figma'],
+    whatIDid: [
+      'Built a cross-platform alumni networking app with a Firebase backend covering Authentication, real-time Firestore database, and Cloud Storage.',
+      'Architected core interactive modules: dynamic social feed with full CRUD posting, 1-on-1 instant chat channels, job board, and university event calendar.',
+      'Engineered customizable colorblind-friendly accessible themes along with an automatic dark mode toggle and responsive tablet support.',
+    ],
+    liveDemoUrl: 'https://github.com/raqeeb0318212/Nexus',
+    githubUrl: 'https://github.com/raqeeb0318212/Nexus',
+    metrics: 'Multi-screen architecture • Real-time Firebase Sync • WCAG Colorblind Themes',
+    architectureHighlights: [
+      'State management using structured provider/bloc patterns',
+      'Instant notification dispatcher for new campus job posts',
+      'Offline caching for alumni directories and contact cards',
+    ],
+  },
+  {
+    id: 'fixit-bhera',
+    name: 'Fixit Bhera — On-Demand Services Platform',
+    oneLiner: 'High-speed local booking marketplace connecting homeowners with verified doorstep repair pros.',
+    category: 'Frontend Web',
+    year: '2026',
+    featured: true,
+    thumbnailUrl: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=80',
+    mockupAccent: 'from-blue-500/20 to-indigo-500/10',
+    techStack: ['React', 'TypeScript', 'Tailwind CSS', 'Vite', 'Lucide Icons'],
+    whatIDid: [
+      'Crafted an accessible single-page web application featuring instantaneous service selection, price estimator, and interactive booking modal.',
+      'Implemented bilingual English & Urdu localization with automatic RTL switching and localized typography.',
+      'Designed direct 1-click WhatsApp order dispatch with automated message synthesis to reduce booking friction to under 30 seconds.',
+    ],
+    liveDemoUrl: '#',
+    githubUrl: 'https://github.com/raqeeb0318212',
+    metrics: '< 1.5s First Load • Bilingual (EN/UR) • 100% Mobile Responsive',
+    architectureHighlights: [
+      'Zero external bloated libraries; pure Tailwind CSS v4 styling',
+      'Local storage caching of ongoing booking drafts and area records',
+      'Touch-first design optimized for low-bandwidth mobile devices',
+    ],
+  },
+  {
+    id: 'agriscan',
+    name: 'AgriScan — AI Crop Disease Classifier',
+    oneLiner: 'Machine learning powered mobile diagnostic tool helping farmers detect leaf pathologies with offline inference.',
+    category: 'AI / Machine Learning',
+    year: '2025',
+    featured: true,
+    thumbnailUrl: 'https://images.unsplash.com/photo-1592417817098-8f3d6910985c?auto=format&fit=crop&w=900&q=80',
+    mockupAccent: 'from-amber-500/20 to-lime-500/10',
+    techStack: ['Flutter', 'Python', 'TensorFlow Lite', 'OpenCV', 'Dart'],
+    whatIDid: [
+      'Integrated a quantized CNN model with TensorFlow Lite inside a mobile Flutter app for real-time camera crop diagnostics.',
+      'Implemented on-device image preprocessing and confidence scoring with zero required internet connectivity.',
+      'Provided clear localized remedy guides in both Urdu and English for smallholder farmers across Punjab.',
+    ],
+    liveDemoUrl: 'https://github.com/raqeeb0318212',
+    githubUrl: 'https://github.com/raqeeb0318212',
+    metrics: '94% Validation Accuracy • 120ms Inference • 100% Offline Capability',
+    architectureHighlights: [
+      'Quantized INT8 model minimizing memory footprint to under 18MB',
+      'Camera streaming isolate ensuring 60fps buttery smooth UI',
+      'Step-by-step chemical and organic treatment protocols',
+    ],
+  },
+  {
+    id: 'campus-helpdesk',
+    name: 'Campus Care & Ticket Helpdesk Portal',
+    oneLiner: 'Centralized student issue ticketing and academic facility asset management dashboard.',
+    category: 'Full Stack',
+    year: '2025',
+    featured: true,
+    thumbnailUrl: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=900&q=80',
+    mockupAccent: 'from-purple-500/20 to-pink-500/10',
+    techStack: ['React', 'JavaScript', 'Tailwind CSS', 'REST APIs', 'Chart.js'],
+    whatIDid: [
+      'Developed an interactive ticket management interface with status kanban columns, search filters, and priority tags.',
+      'Implemented role-specific views for students, department lab engineers, and university administrative staff.',
+      'Built a data dashboard displaying average resolution turnaround times and recurring equipment repair patterns.',
+    ],
+    liveDemoUrl: 'https://github.com/raqeeb0318212',
+    githubUrl: 'https://github.com/raqeeb0318212',
+    metrics: 'Kanban Workflow • Real-time Filter Bar • Exportable Issue Logs',
+    architectureHighlights: [
+      'Optimistic UI updates for smooth ticket dragging and stage transitions',
+      'Role-based access controls ensuring student data confidentiality',
+      'Clean modular React components with re-usable form controls',
+    ],
+  },
+];
+
+export const EXPERIENCES: ExperienceItem[] = [
+  {
+    id: 'data-associate',
+    role: 'Data Entry Associate',
+    company: 'Freelance & Independent Client Work',
+    location: 'Remote, Pakistan',
+    duration: '1 Month, 2026',
+    type: 'Freelance',
+    bullets: [
+      'Performed accurate, high-volume data entry and record management for client Excel sheets, ensuring consistency and error-free reporting.',
+      'Organized and maintained structured daily and monthly spreadsheets, improving data accessibility and report readiness for business stakeholders.',
+      'Communicated directly with the client to understand requirements and deliver verified work within tight turnaround times.',
+    ],
+    technologies: ['Microsoft Excel', 'Data Auditing', 'Quality Assurance', 'Spreadsheet Formulas'],
+  },
+  {
+    id: 'open-source',
+    role: 'Software Projects & Open-Source Contributor',
+    company: 'Self-Directed / University Engineering Labs',
+    location: 'Lahore & Remote',
+    duration: '2024 – 2026',
+    type: 'Open Source',
+    bullets: [
+      'Engineered multiple production-quality mobile and web repositories showcasing Flutter architecture, Firebase security rules, and React component systems.',
+      'Participated in code reviews, bug fixing, and peer code collaborations during senior academic software capstones.',
+      'Published clean documentation, GitHub README walkthroughs, and architecture diagrams for open repositories.',
+    ],
+    technologies: ['Flutter', 'React', 'Git', 'Firebase', 'Java', 'Tailwind CSS'],
+  },
+];
+
+export const EDUCATION_LIST: EducationItem[] = [
+  {
+    id: 'bs-cs',
+    degree: 'Bachelor of Science in Computer Science (BS CS)',
+    institution: 'The University of Lahore',
+    location: 'Lahore, Pakistan',
+    duration: '2022 – 2026',
+    grade: 'CGPA: 3.68 / 4.00 (High Academic Distinction)',
+    highlights: [
+      'Maintained consistent Dean\'s Honor List academic performance across core software engineering coursework.',
+      'Key Coursework: Data Structures & Algorithms, Object-Oriented Programming (Java), Web Engineering, Mobile App Development, Database Systems, Operating Systems, Machine Learning.',
+      'Senior Capstone Project: Cross-platform mobile ecosystem engineered in Flutter & Firebase.',
+    ],
+  },
+  {
+    id: 'fsc',
+    degree: 'Intermediate (FSc Pre-Medical)',
+    institution: 'Reader Group of Colleges, Bhera',
+    location: 'Bhera, Punjab',
+    duration: '2020 – 2022',
+    grade: 'Score: 884 / 1100 (Grade A+)',
+    highlights: [
+      'Developed rigorous scientific methodology and analytical problem-solving foundation.',
+      'Transitioned to Computer Science driven by high passion for algorithms and digital product building.',
+    ],
+  },
+  {
+    id: 'matric',
+    degree: 'Matriculation (Science)',
+    institution: 'Govt. Islamia High School, Bhera',
+    location: 'Bhera, Punjab',
+    duration: '2018 – 2020',
+    grade: 'Score: 943 / 1100 (Grade A+)',
+    highlights: [
+      'Strong mathematical fundamentals and scientific coursework.',
+      'Actively participated in campus debate and co-curricular academic competitions.',
+    ],
+  },
+];
+
+export const CERTIFICATIONS: CertificationItem[] = [
+  {
+    id: 'flutter-dev',
+    title: 'Cross-Platform Mobile Application Development (Flutter & Dart)',
+    issuer: 'Hands-on University & Self-Directed Labs',
+    year: '2025',
+    focus: 'Provider/Bloc State Management, Firebase Auth, REST Integration, and Responsive Layouts',
+  },
+  {
+    id: 'web-engineering',
+    title: 'Modern Web Development & React Architecture',
+    issuer: 'Academic Coursework & Production Project Work',
+    year: '2025',
+    focus: 'React Hooks, TypeScript, Tailwind CSS, API Integration, and Performance Optimization',
+  },
+  {
+    id: 'oop-java',
+    title: 'Object-Oriented Programming & Data Structures in Java',
+    issuer: 'Department of Computer Science, The University of Lahore',
+    year: '2024',
+    focus: 'Algorithmic Complexity, Memory Management, Collections, and Design Patterns',
+  },
+];

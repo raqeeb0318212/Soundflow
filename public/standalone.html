@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fixit Bhera - 1-Hour Doorstep Service | Electrician, Plumber, AC & Repairs</title>
+  <meta name="description" content="Fixit Bhera: Verified Electrician, Plumber, AC Technician, Appliance Repair & Cleaning in Bhera City & neighboring villages. 1-hour doorstep arrival, standard visit rates, 100% cash on service." />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Noto+Sans+Arabic:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; }
+    html[lang="ur"] body, html[dir="rtl"] body { font-family: 'Noto Sans Arabic', Tahoma, sans-serif; line-height: 1.8; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+  </style>
+</head>
+<body class="bg-neutral-50 text-neutral-900 antialiased pb-20">
+
+  <!-- Download ZIP Notice Bar -->
+  <div class="bg-emerald-600 text-white text-xs py-2 px-4 shadow-sm">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2 font-medium">
+        <span>📦</span>
+        <span><strong>Clean Standalone Code:</strong> Zero dummy data, pure HTML, CSS & JavaScript.</span>
+      </div>
+      <a href="/fixit-bhera-website.zip" download="fixit-bhera-website.zip" class="bg-white text-emerald-800 hover:bg-emerald-50 px-3 py-1 rounded-lg font-bold text-xs flex items-center gap-1 transition shadow-xs">
+        <span>⬇️</span>
+        <span>Download Website ZIP File</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Top Assurance Bar -->
+  <div class="bg-neutral-900 text-neutral-200 text-xs py-2 px-4 border-b border-neutral-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-3">
+        <span class="flex items-center gap-1.5 text-emerald-400 font-bold">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span id="txt-live-status">Active technicians on duty in Bhera City & villages</span>
+        </span>
+        <span class="text-neutral-500">|</span>
+        <span class="text-neutral-300" id="txt-arrival-promise">1-Hour Doorstep Arrival Guarantee</span>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <span class="text-amber-400 font-semibold hidden sm:inline" id="txt-cash-promise">100% Cash After Work (Zero Advance)</span>
+        <button id="btn-lang-toggle" onclick="toggleLang()" class="bg-neutral-800 hover:bg-neutral-700 text-white text-xs font-bold px-3 py-1 rounded-full border border-neutral-700 transition cursor-pointer flex items-center gap-1">
+          <span>🌐</span>
+          <span id="lang-btn-label">اردو (Urdu)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-neutral-200 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-4">
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-amber-500 text-neutral-950 flex items-center justify-center font-black text-xl">🔧</div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xl font-extrabold tracking-tight text-neutral-900" id="brand-title">Fixit Bhera</span>
+            <span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-1.5 py-0.5 rounded-sm uppercase">Tehsil Bhera</span>
+          </div>
+          <p class="text-xs text-neutral-500" id="brand-sub">Doorstep service within 1 hour</p>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-neutral-700">
+        <a href="#services" class="hover:text-amber-600 transition" id="nav-services">Our Services</a>
+        <a href="#how-it-works" class="hover:text-amber-600 transition" id="nav-how">How It Works</a>
+        <a href="#coverage" class="hover:text-amber-600 transition" id="nav-areas">Villages & Coverage</a>
+        <a href="#reviews-section" class="hover:text-amber-600 transition" id="nav-reviews">Customer Feedback</a>
+      </nav>
+
+      <div class="flex items-center gap-2.5">
+        <a href="tel:03007864321" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold px-3 sm:px-4 py-2 rounded-xl flex items-center gap-2 transition">
+          <span>📞</span>
+          <span class="hidden sm:inline" id="txt-call-label">Call:</span>
+          <span class="font-mono">0300-7864321</span>
+        </a>
+        <button onclick="openBookingModal()" class="bg-amber-500 hover:bg-amber-400 text-neutral-950 text-xs sm:text-sm font-bold px-4 py-2 rounded-xl transition cursor-pointer" id="btn-book-nav">
+          Book Service
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-b from-amber-500/10 via-amber-500/5 to-white py-12 sm:py-20 border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center space-y-6">
+      <div class="inline-flex items-center gap-2 bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold px-4 py-1.5 rounded-full shadow-xs">
+        <span>📍</span>
+        <span id="hero-badge">Serving Bhera City, Miani, Hazurpur, Zain Pur, Ali Pur, Melowal & all local villages</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-neutral-900 tracking-tight max-w-4xl mx-auto leading-tight" id="hero-heading">
+        Fixit Bhera — <span class="text-amber-600">Within 1 Hour</span> at Your Doorstep!
+      </h1>
+
+      <p class="text-base sm:text-lg text-neutral-600 max-w-2xl mx-auto leading-relaxed" id="hero-desc">
+        Electrician, Plumber, AC Technician, Fridge & Washing Machine Repair. No more wandering in the bazaar or begging busy mistris. Standard rates, CNIC-verified local technicians, and cash payment after completion.
+      </p>
+
+      <div class="inline-flex flex-wrap items-center justify-center gap-4 bg-white border border-neutral-200 rounded-2xl p-4 shadow-sm max-w-xl mx-auto text-xs sm:text-sm">
+        <div class="flex items-center gap-1.5 font-bold text-neutral-800">
+          <span>💰</span>
+          <span id="txt-rate-highlight">Visit Rate: Rs. 1,500 - 4,000</span>
+        </div>
+        <span class="text-neutral-300 hidden sm:inline">•</span>
+        <div class="flex items-center gap-1.5 font-bold text-neutral-800">
+          <span>🛡️</span>
+          <span id="txt-warranty-highlight">30-Day Free Follow-up Warranty</span>
+        </div>
+      </div>
+
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
+        <button onclick="openBookingModal()" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold px-8 py-3.5 rounded-xl text-sm sm:text-base shadow-md transition cursor-pointer" id="hero-btn-book">
+          🛠️ Book Service Online
+        </button>
+        <a id="hero-wa-link" href="https://wa.me/923007864321?text=Hello%20Fixit%20Bhera!%20I%20need%20a%20technician." target="_blank" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-xl text-sm sm:text-base flex items-center justify-center gap-2 shadow-md transition">
+          <span>💬</span>
+          <span id="hero-btn-wa">Instant WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 Core Services Section -->
+  <section id="services" class="py-16 sm:py-20 bg-white border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
+      <div class="text-center space-y-3">
+        <span class="text-xs font-bold text-amber-700 bg-amber-100 px-3 py-1 rounded-full uppercase" id="services-badge">Our 5 Core Services</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-neutral-900" id="services-heading">Most Requested Home Services in Bhera</h2>
+        <p class="text-sm sm:text-base text-neutral-600 max-w-2xl mx-auto" id="services-sub">Equipped with specialized tools and authentic hardware parts at your doorstep</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="services-container">
+        <!-- Injected by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="py-16 sm:py-20 bg-neutral-50 border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
+      <div class="text-center space-y-2">
+        <span class="text-xs font-bold text-amber-700 bg-amber-100 px-3 py-1 rounded-full uppercase" id="how-badge">Simple 3 Steps</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-neutral-900" id="how-heading">How Fixit Bhera Works</h2>
+        <p class="text-sm text-neutral-600 max-w-2xl mx-auto" id="how-sub">No more wasted hours searching in the bazaar or waiting endlessly</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-2xl border border-neutral-200 shadow-xs space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-700 flex items-center justify-center font-black text-xl">1</div>
+          <h3 class="font-extrabold text-lg text-neutral-900" id="step1-title">Book via Call or WhatsApp</h3>
+          <p class="text-xs sm:text-sm text-neutral-600" id="step1-desc">Call 0300-7864321 or send a WhatsApp message with your area/village and problem description.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-neutral-200 shadow-xs space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-700 flex items-center justify-center font-black text-xl">2</div>
+          <h3 class="font-extrabold text-lg text-neutral-900" id="step2-title">Technician Arrives in 1 Hour</h3>
+          <p class="text-xs sm:text-sm text-neutral-600" id="step2-desc">A CNIC-verified pro arrives on a motorbike with proper diagnostic tools and quotes the rate beforehand.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-neutral-200 shadow-xs space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-700 flex items-center justify-center font-black text-xl">3</div>
+          <h3 class="font-extrabold text-lg text-neutral-900" id="step3-title">Pay Cash After Inspection</h3>
+          <p class="text-xs sm:text-sm text-neutral-600" id="step3-desc">Inspect the repair, ensure complete satisfaction, and pay cash or JazzCash. You receive a 30-day warranty.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Area Coverage -->
+  <section id="coverage" class="py-16 sm:py-20 bg-white border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-10">
+      <div class="text-center space-y-2">
+        <span class="text-xs font-bold text-emerald-800 bg-emerald-100 px-3 py-1 rounded-full uppercase" id="area-badge">Coverage Areas</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-neutral-900" id="area-title">Bhera City & Neighboring Villages</h2>
+        <p class="text-sm text-neutral-600" id="area-sub">Our technicians promptly reach all 8 historic gates of Bhera and nearby rural communities</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4" id="areas-container">
+        <!-- Injected by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Real Customer Feedback & Guarantees (Zero Dummy Reviews) -->
+  <section id="reviews-section" class="py-16 sm:py-20 bg-neutral-50 border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-10">
+      <div class="text-center space-y-2 max-w-3xl mx-auto">
+        <span class="text-xs font-bold text-emerald-800 bg-emerald-100 px-3 py-1 rounded-full uppercase" id="feedback-badge">Quality Standards</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-neutral-900" id="feedback-title">Customer Feedback & Service Commitments</h2>
+        <p class="text-sm text-neutral-600" id="feedback-sub">Zero fake testimonials. Pay after inspecting the job and submit your genuine experience directly.</p>
+      </div>
+
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-neutral-200 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <h3 class="font-extrabold text-neutral-900 text-lg" id="txt-share-exp">Share Your Feedback</h3>
+          <p class="text-xs text-neutral-500" id="txt-share-sub">Help us maintain top-tier service standards in Tehsil Bhera.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="openFeedbackModal()" class="bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition cursor-pointer" id="btn-write-review">
+            ⭐ Write a Review
+          </button>
+          <a href="https://wa.me/923007864321?text=Hello%20Fixit%20Bhera!%20I%20would%20like%20to%20share%20my%20feedback." target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-1.5">
+            <span>💬</span><span>WhatsApp Feedback</span>
+          </a>
+        </div>
+      </div>
+
+      <div id="user-reviews-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Rendered from real localStorage reviews -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 text-neutral-300 py-12 border-t border-neutral-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs">
+      <div>
+        <span class="text-lg font-bold text-white">Fixit Bhera</span>
+        <p class="text-neutral-500 mt-1">1-Hour Doorstep Electrician, Plumber, AC & Repairs in Bhera.</p>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="tel:03007864321" class="text-amber-400 font-bold hover:underline">📞 0300-7864321</a>
+        <span class="text-neutral-700">|</span>
+        <a href="https://wa.me/923007864321" target="_blank" class="text-emerald-400 font-bold hover:underline">💬 WhatsApp Direct</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Booking Modal -->
+  <div id="booking-modal" class="fixed inset-0 z-50 bg-neutral-950/70 hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl w-full max-w-lg shadow-2xl border border-neutral-200 overflow-hidden relative">
+      <div class="bg-neutral-900 text-white p-5 flex items-center justify-between">
+        <div>
+          <h3 class="font-bold text-lg" id="modal-title">Book a Verified Technician</h3>
+          <p class="text-xs text-neutral-400" id="modal-sub">Prompt doorstep arrival in 1 hour</p>
+        </div>
+        <button onclick="closeBookingModal()" class="text-neutral-400 hover:text-white p-1 rounded-lg text-lg cursor-pointer">✕</button>
+      </div>
+
+      <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="p-5 space-y-4 text-xs sm:text-sm">
+        <div>
+          <label class="block font-bold text-neutral-800 mb-1">Select Service:</label>
+          <select id="modal-service-select" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl p-2.5 font-semibold text-neutral-900">
+            <option value="electrician">Electrician (Wiring, Fan, Geyser, Breakers)</option>
+            <option value="plumber">Plumber (Leakage, Tanki, Motor Pump, Taps)</option>
+            <option value="ac-technician">AC Technician (Gas Refill, Service, Fitting)</option>
+            <option value="appliance-repair">Appliance Repair (Fridge, Washing Machine, Oven)</option>
+            <option value="home-cleaning">Home Cleaning (Deep Clean, Sofa & Tank Wash)</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-neutral-800 mb-1">Your Full Name:</label>
+            <input type="text" id="modal-name" required placeholder="e.g. Muhammad Ahmad" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl p-2.5" />
+          </div>
+          <div>
+            <label class="block font-bold text-neutral-800 mb-1">Mobile Number:</label>
+            <input type="tel" id="modal-phone" required placeholder="0300-XXXXXXX" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl p-2.5 font-mono" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-neutral-800 mb-1">Area / Village:</label>
+          <select id="modal-area-select" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl p-2.5">
+            <option value="bhera-city">Bhera City</option>
+            <option value="miani">Miani</option>
+            <option value="hazurpur">Hazurpur</option>
+            <option value="zain-pur">Zain Pur</option>
+            <option value="ali-pur">Ali Pur</option>
+            <option value="melowal">Melowal</option>
+            <option value="rakh-chargah">Rakh Chargah</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-bold text-neutral-800 mb-1">Street / Mohalla / Landmark:</label>
+          <input type="text" id="modal-address" required placeholder="e.g. Mohalla Sheikhan, Street #2, Near Jamia Masjid" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl p-2.5" />
+        </div>
+
+        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl flex items-center justify-center gap-2 shadow-md transition cursor-pointer text-sm">
+          <span>💬</span>
+          <span id="btn-submit-order">Send Booking via WhatsApp</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Write a Review Modal -->
+  <div id="feedback-modal" class="fixed inset-0 z-50 bg-neutral-950/70 hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl w-full max-w-md p-6 shadow-2xl border border-neutral-200 space-y-4">
+      <div class="flex items-center justify-between border-b border-neutral-100 pb-3">
+        <h3 class="font-bold text-neutral-900 text-base">Submit Real Customer Review</h3>
+        <button onclick="closeFeedbackModal()" class="text-neutral-400 hover:text-neutral-900 text-lg cursor-pointer">✕</button>
+      </div>
+
+      <form onsubmit="handleReviewSubmit(event)" class="space-y-3.5 text-xs sm:text-sm">
+        <div>
+          <label class="block font-semibold text-neutral-800 mb-1">Your Name:</label>
+          <input type="text" id="rev-name" required placeholder="e.g. Tariq Ahmad" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl p-2.5" />
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block font-semibold text-neutral-800 mb-1">Area:</label>
+            <select id="rev-area" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl p-2.5">
+              <option value="Bhera City">Bhera City</option>
+              <option value="Miani">Miani</option>
+              <option value="Hazurpur">Hazurpur</option>
+              <option value="Zain Pur">Zain Pur</option>
+              <option value="Ali Pur">Ali Pur</option>
+              <option value="Melowal">Melowal</option>
+              <option value="Rakh Chargah">Rakh Chargah</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-semibold text-neutral-800 mb-1">Service:</label>
+            <select id="rev-service" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl p-2.5">
+              <option value="Electrician">Electrician</option>
+              <option value="Plumber">Plumber</option>
+              <option value="AC Technician">AC Technician</option>
+              <option value="Appliance Repair">Appliance Repair</option>
+              <option value="Home Cleaning">Home Cleaning</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-semibold text-neutral-800 mb-1">Rating (1 to 5 Stars):</label>
+          <select id="rev-rating" class="w-full bg-neutral-50 border border-neutral-300 rounded-xl p-2.5">
+            <option value="5">⭐⭐⭐⭐⭐ 5 Stars (Excellent)</option>
+            <option value="4">⭐⭐⭐⭐ 4 Stars (Good)</option>
+            <option value="3">⭐⭐⭐ 3 Stars (Average)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-semibold text-neutral-800 mb-1">Your Feedback:</label>
+          <textarea id="rev-comment" required rows="3" placeholder="Describe the punctuality and repair quality..." class="w-full bg-neutral-50 border border-neutral-300 rounded-xl p-2.5"></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold py-3 rounded-xl transition cursor-pointer">
+          Submit Review
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const WHATSAPP_NUM = '923007864321';
+    let currentLang = 'en';
+
+    const SERVICES = [
+      { id: 'electrician', nameEn: 'Electrician', nameUr: 'الیکٹریشن', taglineEn: 'Wiring, Ceiling Fan, Geyser, Breakers & Short Circuit', taglineUr: 'وائرنگ، پنکھا، گیزر، بریکر، شارٹ سرکٹ فالٹ', priceEn: '1,500 - 3,500 PKR', priceUr: '1500 سے 3500 روپے', icon: '⚡' },
+      { id: 'plumber', nameEn: 'Plumber', nameUr: 'پلمبر', taglineEn: 'Pipe Leakage, Water Tanki, Donkey Pump & Taps', taglineUr: 'پائپ لیکیج، پانی کی ٹینکی، ڈونکی پمپ اور ٹونٹی مرمت', priceEn: '1,500 - 3,500 PKR', priceUr: '1500 سے 3500 روپے', icon: '🔧' },
+      { id: 'ac-technician', nameEn: 'AC Technician', nameUr: 'اے سی ٹیکنیشن', taglineEn: 'Master Pressure Wash, Gas Refill & Split AC Installation', taglineUr: 'پریشر واش سروس، گیس چارجنگ اور سپلٹ اے سی فٹنگ', priceEn: '2,000 - 4,500 PKR', priceUr: '2000 سے 4500 روپے', icon: '❄️' },
+      { id: 'appliance-repair', nameEn: 'Appliance Repair', nameUr: 'گھریلو مشینری', taglineEn: 'Refrigerator Cooling, Washing Machine & Microwave Repair', taglineUr: 'فریج کولنگ، واشنگ مشین موٹر اور مائیکروویو مرمت', priceEn: '1,800 - 4,000 PKR', priceUr: '1800 سے 4000 روپے', icon: '🔌' },
+      { id: 'home-cleaning', nameEn: 'Home Cleaning', nameUr: 'گھر کی صفائی', taglineEn: 'Deep Home Cleaning, Sofa/Carpet Foam Wash & Water Tank', taglineUr: 'ڈیپ ہوم کلیننگ، صوفہ/قالین واش اور ٹینکی صفائی', priceEn: '2,500 - 5,500 PKR', priceUr: '2500 سے 5500 روپے', icon: '✨' }
+    ];
+
+    const AREAS = [
+      { id: 'bhera-city', nameEn: 'Bhera City (All 8 Gates)', nameUr: 'بھیرہ شہر (تمام 8 تاریخی دروازے)', etaEn: '30-45 mins', etaUr: '30 سے 45 منٹ' },
+      { id: 'miani', nameEn: 'Miani', nameUr: 'میانی موضع', etaEn: '45-60 mins', etaUr: '45 سے 60 منٹ' },
+      { id: 'hazurpur', nameEn: 'Hazurpur', nameUr: 'حضور پور', etaEn: '45-60 mins', etaUr: '45 سے 60 منٹ' },
+      { id: 'zain-pur', nameEn: 'Zain Pur', nameUr: 'زین پور', etaEn: '50-65 mins', etaUr: '50 سے 65 منٹ' },
+      { id: 'ali-pur', nameEn: 'Ali Pur', nameUr: 'علی پور', etaEn: '50-65 mins', etaUr: '50 سے 65 منٹ' },
+      { id: 'melowal', nameEn: 'Melowal', nameUr: 'میلووال', etaEn: '55-70 mins', etaUr: '55 سے 70 منٹ' },
+      { id: 'rakh-chargah', nameEn: 'Rakh Chargah', nameUr: 'رکھ چراگاہ', etaEn: '55-75 mins', etaUr: '55 سے 75 منٹ' }
+    ];
+
+    function renderServices() {
+      const container = document.getElementById('services-container');
+      if (!container) return;
+      const isUr = currentLang === 'ur';
+
+      container.innerHTML = SERVICES.map(s => `
+        <div class="bg-neutral-50 rounded-2xl p-6 border border-neutral-200 hover:border-amber-400 hover:shadow-md transition flex flex-col justify-between">
+          <div>
+            <div class="text-3xl mb-3">${s.icon}</div>
+            <h3 class="text-lg font-extrabold text-neutral-900">${isUr ? s.nameUr : s.nameEn}</h3>
+            <p class="text-xs text-neutral-600 mt-1 mb-4 leading-relaxed">${isUr ? s.taglineUr : s.taglineEn}</p>
+            <div class="text-xs font-mono font-bold text-amber-700 mb-4 bg-amber-50 inline-block px-2.5 py-1 rounded-md">
+              ${isUr ? s.priceUr : s.priceEn}
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-2 pt-2 border-t border-neutral-200/60">
+            <button onclick="openBookingModal('${s.id}')" class="bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold py-2.5 rounded-xl text-xs transition cursor-pointer">
+              ${isUr ? 'بک کریں' : 'Book Now'}
+            </button>
+            <a href="https://wa.me/${WHATSAPP_NUM}?text=${encodeURIComponent((isUr ? 'السلام علیکم فکس اِٹ بھیرہ! مجھے کاریگر درکار ہے: ' : 'Assalam-o-Alaikum Fixit Bhera! I need technician for: ') + (isUr ? s.nameUr : s.nameEn))}" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-xl text-xs text-center flex items-center justify-center gap-1 transition">
+              <span>💬</span>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderAreas() {
+      const container = document.getElementById('areas-container');
+      if (!container) return;
+      const isUr = currentLang === 'ur';
+
+      container.innerHTML = AREAS.map(a => `
+        <button onclick="openBookingModal(undefined, '${a.id}')" class="bg-neutral-50 hover:bg-amber-50/70 border border-neutral-200 hover:border-amber-400 rounded-xl p-3.5 text-left transition cursor-pointer group">
+          <div class="flex items-center gap-1.5 text-xs font-bold text-neutral-900 group-hover:text-amber-700">
+            <span>📍</span>
+            <span>${isUr ? a.nameUr : a.nameEn}</span>
+          </div>
+          <div class="text-[11px] text-emerald-700 font-semibold mt-1 flex items-center gap-1">
+            <span>⏱️</span>
+            <span>${isUr ? a.etaUr : a.etaEn}</span>
+          </div>
+        </button>
+      `).join('');
+    }
+
+    function renderCustomerReviews() {
+      const container = document.getElementById('user-reviews-list');
+      if (!container) return;
+      const isUr = currentLang === 'ur';
+
+      let reviews = [];
+      try {
+        const raw = localStorage.getItem('fixit_bhera_user_reviews');
+        if (raw) reviews = JSON.parse(raw);
+      } catch (e) {}
+
+      if (reviews.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-8 text-center text-xs sm:text-sm text-neutral-500 bg-white rounded-2xl border border-neutral-200 p-6">
+            <p class="font-semibold text-neutral-700 mb-1">
+              ${isUr ? 'کوئی بناوٹی یا فرضی ریویو نہیں رکھا گیا ہے۔' : 'Zero dummy or fake reviews.'}
+            </p>
+            <p>${isUr ? 'کام مکمل ہونے کے بعد اوپر "ریویو درج کریں" پر کلک کر کے اپنا سچا تجربہ شیئر کریں۔' : 'Click "Write a Review" above to submit your genuine feedback after service.'}</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = reviews.map(r => `
+        <div class="bg-white p-5 rounded-2xl border border-neutral-200 shadow-xs space-y-2.5">
+          <div class="flex items-center justify-between">
+            <div class="text-amber-400 text-xs">${'⭐'.repeat(r.rating || 5)}</div>
+            <span class="text-[10px] text-neutral-400">${r.date || 'Recent'}</span>
+          </div>
+          <p class="text-xs text-neutral-700 italic">"${r.comment}"</p>
+          <div class="pt-2 border-t border-neutral-100 flex items-center justify-between text-xs">
+            <span class="font-bold text-neutral-900">${r.name}</span>
+            <span class="text-neutral-500 text-[11px]">${r.area} • ${r.service}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function toggleLang() {
+      currentLang = currentLang === 'en' ? 'ur' : 'en';
+      document.documentElement.lang = currentLang;
+      document.documentElement.dir = currentLang === 'ur' ? 'rtl' : 'ltr';
+
+      const label = document.getElementById('lang-btn-label');
+      if (label) label.textContent = currentLang === 'en' ? 'اردو (Urdu)' : 'English';
+
+      const isUr = currentLang === 'ur';
+
+      const updates = [
+        { id: 'txt-live-status', en: 'Active technicians on duty in Bhera City & villages', ur: 'آج بھیرہ شہر اور دیہات میں کاریگر ڈیوٹی پر موجود ہیں' },
+        { id: 'txt-arrival-promise', en: '1-Hour Doorstep Arrival Guarantee', ur: '1 گھنٹے میں دہلیز پر آمد کی گارنٹی' },
+        { id: 'txt-cash-promise', en: '100% Cash After Work (Zero Advance)', ur: '100% کام کے بعد کیش (کوئی ایڈوانس نہیں)' },
+        { id: 'brand-title', en: 'Fixit Bhera', ur: 'فکس اِٹ بھیرہ' },
+        { id: 'brand-sub', en: 'Doorstep service within 1 hour', ur: '1 گھنٹے میں کاریگر آپ کے گھر' },
+        { id: 'nav-services', en: 'Our Services', ur: 'سروسز' },
+        { id: 'nav-how', en: 'How It Works', ur: 'کام کا طریقہ' },
+        { id: 'nav-areas', en: 'Villages & Coverage', ur: 'دیہات و علاقے' },
+        { id: 'nav-reviews', en: 'Customer Feedback', ur: 'عوامی آراء' },
+        { id: 'btn-book-nav', en: 'Book Service', ur: 'کاریگر بلوائیں' },
+        { id: 'hero-badge', en: 'Serving Bhera City, Miani, Hazurpur, Zain Pur, Ali Pur, Melowal & all local villages', ur: 'بھیرہ شہر، میانی، حضور پور، زین پور، علی پور، میلووال اور تمام مواضعات' },
+        { id: 'hero-desc', en: 'Electrician, Plumber, AC Technician, Fridge & Washing Machine Repair. Standard rates, CNIC-verified local technicians, and cash payment after completion.', ur: 'الیکٹریشن، پلمبر، اے سی ٹیکنیشن، گھریلو مشینری اور گھر کی صفائی۔ مناسب ریٹ، شناختی کارڈ تصدیق شدہ کاریگر اور کام کے بعد کیش ادائیگی۔' },
+        { id: 'hero-btn-book', en: '🛠️ Book Service Online', ur: '🛠️ آن لائن سروس بک کریں' },
+        { id: 'hero-btn-wa', en: 'Instant WhatsApp', ur: 'فوری واٹس ایپ' },
+        { id: 'services-heading', en: 'Most Requested Home Services in Bhera', ur: 'بھیرہ کے لیے 5 بنیادی سروسز' },
+        { id: 'services-sub', en: 'Equipped with specialized tools and authentic hardware parts at your doorstep', ur: 'شناختی کارڈ تصدیق شدہ تجربہ کار مقامی کاریگر، واضح ریٹس اور گارنٹی شدہ کام۔' }
+      ];
+
+      updates.forEach(u => {
+        const el = document.getElementById(u.id);
+        if (el) el.textContent = isUr ? u.ur : u.en;
+      });
+
+      renderServices();
+      renderAreas();
+      renderCustomerReviews();
+    }
+
+    function openBookingModal(serviceId, areaId) {
+      const modal = document.getElementById('booking-modal');
+      if (!modal) return;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+
+      if (serviceId) {
+        const sel = document.getElementById('modal-service-select');
+        if (sel) sel.value = serviceId;
+      }
+      if (areaId) {
+        const selArea = document.getElementById('modal-area-select');
+        if (selArea) selArea.value = areaId;
+      }
+    }
+
+    function closeBookingModal() {
+      const modal = document.getElementById('booking-modal');
+      if (!modal) return;
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function handleBookingSubmit(e) {
+      e.preventDefault();
+      const service = document.getElementById('modal-service-select').value;
+      const area = document.getElementById('modal-area-select').value;
+      const name = document.getElementById('modal-name').value.trim();
+      const phone = document.getElementById('modal-phone').value.trim();
+      const address = document.getElementById('modal-address').value.trim();
+
+      const isUr = currentLang === 'ur';
+
+      const msg = isUr
+        ? `السلام علیکم فکس اِٹ بھیرہ!\nمجھے کاریگر کی ضرورت ہے: *${service}*\nعلاقہ / گاؤں: *${area}*\nایڈریس: ${address}\nنام: ${name}\nفون: ${phone}\nادائیگی: کیش آن سروس`
+        : `Assalam-o-Alaikum Fixit Bhera!\nI need a technician for: *${service}*\nArea/Village: *${area}*\nAddress: ${address}\nCustomer Name: ${name}\nPhone: ${phone}\nPayment: Cash on Service`;
+
+      window.open(`https://wa.me/${WHATSAPP_NUM}?text=${encodeURIComponent(msg)}`, '_blank');
+      closeBookingModal();
+    }
+
+    function openFeedbackModal() {
+      const modal = document.getElementById('feedback-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closeFeedbackModal() {
+      const modal = document.getElementById('feedback-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    function handleReviewSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('rev-name').value.trim();
+      const area = document.getElementById('rev-area').value;
+      const service = document.getElementById('rev-service').value;
+      const rating = parseInt(document.getElementById('rev-rating').value, 10) || 5;
+      const comment = document.getElementById('rev-comment').value.trim();
+
+      const newRev = {
+        id: 'rev-' + Date.now(),
+        name,
+        area,
+        service,
+        rating,
+        comment,
+        date: currentLang === 'ur' ? 'آج' : 'Just now'
+      };
+
+      let reviews = [];
+      try {
+        const raw = localStorage.getItem('fixit_bhera_user_reviews');
+        if (raw) reviews = JSON.parse(raw);
+      } catch (err) {}
+
+      reviews.unshift(newRev);
+      localStorage.setItem('fixit_bhera_user_reviews', JSON.stringify(reviews));
+
+      closeFeedbackModal();
+      renderCustomerReviews();
+      alert(currentLang === 'ur' ? 'آپ کی رائے درج کر لی گئی ہے۔ شکریہ!' : 'Thank you! Your review has been saved.');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderServices();
+      renderAreas();
+      renderCustomerReviews();
+    });
+  </script>
+</body>
+</html>
